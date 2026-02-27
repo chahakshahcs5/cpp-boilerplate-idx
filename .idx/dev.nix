@@ -29,6 +29,7 @@
       "cheshirekow.cmake-format"
       "vadimcn.vscode-lldb"
       "ms-vscode.makefile-tools"
+      "KylinIdeTeam.cppdebug"
     ];
     # Enable previews
     previews = {
