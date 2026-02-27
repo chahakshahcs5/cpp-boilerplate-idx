@@ -1,23 +1,33 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "CMake Build",
-        "type": "shell",
-        "command": "sh build.sh",
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": ["$gcc"]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Debug",
+      "type": "shell",
+      "command": "sh build.sh Debug",
+      "group": {
+        "kind": "build",
+        "isDefault": true
       },
-      {
-        "label": "Run App",
-        "type": "shell",
-        "command": "./build/MyCppApp",
-        "dependsOn": "CMake Build",
-        "group": "test"
-      }
-    ]
-  }
-  
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Build Release",
+      "type": "shell",
+      "command": "sh build.sh Release",
+      "group": "build",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Run App",
+      "type": "shell",
+      "command": "./build/debug/MyCppApp",
+      "dependsOn": "Build Debug",
+      "group": "test"
+    }
+  ]
+}

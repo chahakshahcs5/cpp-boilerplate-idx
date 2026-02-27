@@ -35,9 +35,7 @@
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        conan-detect-profile = "conan profile detect";
-        allow-permission = "chmod +x ./build.sh";
-        build = "./build.sh";
+        setup-and-build = "conan profile detect && chmod +x ./build.sh && ./build.sh";
         default.openFiles = [ ".idx/dev.nix" "README.md" ];
       };
       # Runs when the workspace is (re)started
