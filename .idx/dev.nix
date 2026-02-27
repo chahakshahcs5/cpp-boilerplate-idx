@@ -5,15 +5,15 @@
   channel = "stable-24.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-     pkgs.gcc
-     pkgs.fmt
-      pkgs.clang
-      pkgs.clang-tools
-      pkgs.gdb
-      pkgs.cmake
-      pkgs.python3
-      pkgs.python3Packages.pip
-      pkgs.gnumake
+    pkgs.gcc
+    pkgs.clang
+    pkgs.clang-tools
+    pkgs.gdb
+    pkgs.cmake
+    pkgs.python3
+    pkgs.python3Packages.pip
+    pkgs.gnumake
+    pkgs.conan
   ];
 
   # Sets environment variables in the workspace
@@ -31,35 +31,18 @@
       "ms-vscode.makefile-tools"
       "KylinIdeTeam.cppdebug"
     ];
-    # Enable previews
-    previews = {
-      enable = true;
-      previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
-      };
-    };
     # Workspace lifecycle hooks
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
-        # Open editors for the following files by default, if they exist:
+        conan-detect-profile = "conan profile detect";
+        allow-permission = "chmod +x ./build.sh";
+        build = "./build.sh";
         default.openFiles = [ ".idx/dev.nix" "README.md" ];
       };
       # Runs when the workspace is (re)started
       onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
+        run = "./build/MyCppApp";
       };
     };
   };
