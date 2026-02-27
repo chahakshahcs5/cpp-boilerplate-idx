@@ -1,4 +1,4 @@
-# C++ Boilerplate with Conan as package manager for Firebase Studio
+# C++ Boilerplate with CMake and Conan for Firebase Studio
 
 This is a sample C++ project that demonstrates how to use CMake and the [Conan](https://conan.io/) package manager within the Firebase Studio environment.
 
