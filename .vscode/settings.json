@@ -1,4 +1,7 @@
 {
     "editor.formatOnSave": true,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "clangd.arguments": [
+        "--compile-commands-dir=build/debug"
+    ]
 }
