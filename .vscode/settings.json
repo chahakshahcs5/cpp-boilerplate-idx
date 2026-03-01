@@ -1,6 +1,7 @@
 {
     "editor.formatOnSave": true,
     "editor.mouseWheelZoom": true,
+    "files.autoSave": "off",
     "clangd.arguments": [
         "--compile-commands-dir=build/debug"
     ]
